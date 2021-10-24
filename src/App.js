@@ -3,7 +3,8 @@ import { commerce } from './lib/commerce';
 import { Products, Navbar } from './components';
 
 const App = () => {
-    const [ products, setProducts ] = useState([ ])
+    const [ products, setProducts ] = useState([ ]);
+    const { cart , setCart } = useState({ });
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
@@ -20,7 +21,7 @@ const App = () => {
     return (
         <div>
             <Navbar />
-            <Products />
+            <Products products={products} />
         </div>
     )
 }

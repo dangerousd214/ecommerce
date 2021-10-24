@@ -11,17 +11,17 @@ const Product = ({ product }) => {
     return (
         <div>
             <Card className={classes.root}>
-                <CardMedia className={classes.media} image={product.image} title={product.name} />
+                <CardMedia className={classes.media} image={product.media} title={product.name} />
                 <CardContent>
                     <div className={classes.cardContent}>
                         <Typography varaint='h5' gutterBottom>
                             {product.name}
                         </Typography>
                         <Typography variant='h5'>
-                            {product.price} 
+                            {product.price.formatted} 
                         </Typography>
                     </div>
-                    <Typography variant='body2' color='textSecondary'>{product.description}</Typography>
+                    <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant='body2' color='textSecondary' />
                 </CardContent>
                 <CardActions disableSpacing className={classes.cardActions}>
                     <IconButton aria-label="Add to Cart">
